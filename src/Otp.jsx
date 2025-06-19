@@ -14,11 +14,17 @@ export const Otp = () => {
         onDone={() => {
           ref2.current.focus();
         }}
+        unDone={() => {
+          ref1.current.focus();
+        }}
       />
       <InputBox
         refer={ref2}
         onDone={() => {
           ref3.current.focus();
+        }}
+        unDone={() => {
+          ref1.current.focus();
         }}
       />
       <InputBox
@@ -26,11 +32,17 @@ export const Otp = () => {
         onDone={() => {
           ref4.current.focus();
         }}
+        unDone={() => {
+          ref2.current.focus();
+        }}
       />
       <InputBox
         refer={ref4}
         onDone={() => {
           ref5.current.focus();
+        }}
+        unDone={() => {
+          ref3.current.focus();
         }}
       />
       <InputBox
@@ -38,23 +50,32 @@ export const Otp = () => {
         onDone={() => {
           ref6.current.focus();
         }}
+        unDone={() => {
+          ref4.current.focus();
+        }}
       />
       <InputBox
         refer={ref6}
         onDone={() => {
           ref6.current.focus();
         }}
+        unDone={() => {
+          ref5.current.focus();
+        }}
       />
     </div>
   );
 };
 
-export function InputBox({ refer, onDone }) {
+export function InputBox({ refer, onDone, unDone }) {
   return (
     <input
       ref={refer}
       className="rounded-sm outline-none text-black border w-6 m-1 text-center"
-      onChange={() => onDone()}
+      onChange={(e) => {
+        if (e.target.value !== "") onDone();
+        else unDone();
+      }}
     />
   );
 }
