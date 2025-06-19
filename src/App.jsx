@@ -1,10 +1,11 @@
-import "./App.css";
+import Otp from "./Otp";
 import Screen from "./Screen";
 
 function App() {
   return (
     <div>
-      <Screen />
+      <Otp />
+      {/* <Screen /> */}
     </div>
 
     // <div className="sm:flex flex-col">
